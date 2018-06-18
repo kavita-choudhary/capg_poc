@@ -1,0 +1,9 @@
+<div class="container">
+  <form #editUser="ngForm" (ngSubmit)='updateUser(currentUser)'>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" [(ngModel)]="currentUser.first">
+    </div>
+    <button type="submit">save</button>
+  </form>
+</div>

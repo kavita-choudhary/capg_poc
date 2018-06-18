@@ -1,0 +1,21 @@
+<div class="container">
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="form-group">
+      <label for="username">UserName</label>
+      <input type="email" name="username" [(ngModel)]="user.username" #username="ngModel" required class="form-control" id="username">
+      <div class="alert" *ngIf="username.invalid && (username.dirty || username.touched)">
+        <div *ngIf="username.errors.required">Username is mandatory</div>
+        <div *ngIf="username.errors.email">Please enter valid username</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" #password="ngModel" required minlength="4" [(ngModel)]="user.password" class="form-control">
+      <div class="alert" *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div *ngIf="password.errors.required">Password is mandatory</div>
+        <div *ngIf='password.errors.minlength'>Password must be of 4 characters</div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-large btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First</th>
+        <th>Last</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of USERS">
+        <td>{{user.first}}</td>
+        <td>{{user.last}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.balance}}</td>
+        <td><a [routerLink]='["/user",user.id]'>Edit</a> <span (click)="deleteProfile(user)">Delete</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
